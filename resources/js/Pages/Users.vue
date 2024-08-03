@@ -6,14 +6,10 @@
     </Layout>
 </template>
 
-<script>
+<script setup>
 import Nav from "../Shared/Nav.vue";
 import Layout from "../Shared/Layout.vue";
 
-export default {
-    name: "Users",
-    components: {Layout, Nav}
-}
 </script>
 
 <style scoped>
