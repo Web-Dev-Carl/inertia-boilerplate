@@ -1,6 +1,6 @@
 <template>
     <nav class="p-2 bg-gray-200 w-full">
-        <ul class="flex justify-between p-4">
+        <ul class="flex justify-around p-4">
             <slot/>
             <li class="">
                 <Link :class="{'underline font-bold': $page.component === 'Home'}" href="/">
