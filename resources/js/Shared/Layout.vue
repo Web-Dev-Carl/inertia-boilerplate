@@ -11,11 +11,9 @@
 </template>
 
 <script>
-import Nav from "./Nav.vue";
 
 export default {
     name: "Layout",
-    components: {Nav}
 }
 </script>
 

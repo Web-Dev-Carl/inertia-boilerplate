@@ -7,12 +7,11 @@
 </template>
 
 <script>
-import Nav from "../Shared/Nav.vue";
 import Layout from "../Shared/Layout.vue";
 
 export default {
     name: "Settings",
-    components: {Layout, Nav}
+    components: {Layout}
 }
 </script>
 
