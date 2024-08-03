@@ -1,5 +1,5 @@
 import {createApp, h} from 'vue';
-import {createInertiaApp, Link} from '@inertiajs/inertia-vue3';
+import {createInertiaApp, Link, Head} from '@inertiajs/inertia-vue3';
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {InertiaProgress} from '@inertiajs/progress';
 
@@ -17,8 +17,11 @@ createInertiaApp({
             .use(plugin)
             .component('Link', Link)
             .component('Nav', Nav)
+            .component('Head', Head)
             .mount(el);
     },
+
+    // title: title => `My App - ${title}` <- to set global app title like "My App - About Us" etc
 });
 
 InertiaProgress.init({
