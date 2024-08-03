@@ -5,11 +5,9 @@
 </template>
 
 <script>
-import Layout from "../Shared/Layout.vue";
 
 export default {
     name: "Users",
-    layout: Layout
 }
 
 </script>

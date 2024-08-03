@@ -6,11 +6,8 @@
 
 <script>
 
-import Layout from "../Shared/Layout.vue";
-
 export default {
     name: "Home",
-    layout: Layout
 }
 </script>
 
