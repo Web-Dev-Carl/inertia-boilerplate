@@ -47,7 +47,7 @@
                             </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 bg-white">
-                            <tr v-for="user in users" key="user.id">
+                            <tr v-for="user in users.data" key="user.id">
                                 <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
                                     <div class="flex items-center">
                                         <div class="h-11 w-11 flex-shrink-0">
@@ -78,6 +78,7 @@
                             <!-- More people... -->
                             </tbody>
                         </table>
+                        <Paginator :data="users"/>
                     </div>
                 </div>
             </div>
@@ -87,7 +88,9 @@
 </template>
 
 <script setup>
-defineProps({users: Array});
+import Paginator from "../Components/Paginator.vue";
+
+defineProps({users: Object});
 
 </script>
 
