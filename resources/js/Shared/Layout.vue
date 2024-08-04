@@ -5,7 +5,7 @@
             <p>Welcome back {{ $page.props.auth.user.username }}</p>
         </Nav>
     </header>
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-4xl mx-auto">
         <slot/>
     </div>
 </template>

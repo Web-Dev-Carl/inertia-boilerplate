@@ -11,5 +11,6 @@
 <section>
     @inertia
 </section>
+<script src="https://kit.fontawesome.com/b204c50cf9.js" crossorigin="anonymous"></script>
 </body>
 </html>
