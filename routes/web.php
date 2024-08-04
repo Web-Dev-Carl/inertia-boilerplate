@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
+Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth');
 
 Route::middleware('auth')->group(function () {
 
@@ -28,7 +29,10 @@ Route::middleware('auth')->group(function () {
                     'name' => $user->name,
                     'email' => $user->email,
                 ]),
-            'filters' => $request->only(['search'])
+            'filters' => $request->only(['search']),
+            'can' => [
+                'createUser' => Auth::user()->can('create', User::class)
+            ]
         ]);
     });
 
@@ -52,7 +56,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/settings', function () {
         return Inertia::render('Settings');
     });
-
-    Route::post('/logout', [LoginController::class, 'logout']);
 
 });

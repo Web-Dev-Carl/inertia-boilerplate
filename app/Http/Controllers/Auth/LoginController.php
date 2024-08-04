@@ -32,7 +32,7 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout(Request $request)
+    public function destroy(Request $request)
     {
         Auth::logout();
 
@@ -40,6 +40,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect()->route('login');
     }
 }
