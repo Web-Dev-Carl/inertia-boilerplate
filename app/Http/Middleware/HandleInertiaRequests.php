@@ -38,11 +38,11 @@ class HandleInertiaRequests extends Middleware
     {
         // Acts globally only pass the data you need!
         return array_merge(parent::share($request), [
-            'auth' => [
+            'auth' => Auth::user() ? [
                 'user' => [
                     'username' => Auth::user()->name // Get with api in real world scenario
                 ]
-            ]
+            ] : null,
         ]);
     }
 }
