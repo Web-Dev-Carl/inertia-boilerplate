@@ -54,7 +54,6 @@
             </div>
         </div>
     </div>
-    <!--    {{ data }}-->
 </template>
 
 <script>
