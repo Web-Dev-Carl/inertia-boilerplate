@@ -39,7 +39,7 @@
             <div v-if="$page.props.errors.email"
                  class="text-red-500 mt-4 text-xs"
                  v-text="$page.props.errors.email">
-                
+
             </div>
         </div>
         <div class="mb-6">
@@ -62,7 +62,9 @@
             </div>
         </div>
         <div class="mb-6">
-            <button class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
+            <button :disabled="form.processing"
+                    :readonly="form.processing"
+                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
                     type="submit">
                 Submit
             </button>
@@ -71,18 +73,23 @@
 </template>
 
 <script setup>
-import {reactive} from "vue";
-import {Inertia} from "@inertiajs/inertia";
+import {useForm} from "@inertiajs/vue3";
 
-let form = reactive({
+let form = useForm({
     'name': '',
     'email': '',
     'password': '',
 });
 
+
 let submit = () => {
-    Inertia.post('/users', form);
+    form.post('/users');
 }
+
+defineProps({
+    errors: Object,
+})
+
 </script>
 
 <style scoped>

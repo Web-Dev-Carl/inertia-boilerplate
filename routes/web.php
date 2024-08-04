@@ -37,11 +37,7 @@ Route::post('/users', function (Request $request) { // Inject Request here
         'password' => 'required',
     ]);
 
-    User::create([
-        'name' => $request->input('name'), // Use the Request instance to call input
-        'email' => $request->input('email'), // Use the Request instance to call input
-        'password' => $request->input('password'), // Encrypt the password
-    ]);
+    User::create($validate);
 
     return redirect('/users');
 });
