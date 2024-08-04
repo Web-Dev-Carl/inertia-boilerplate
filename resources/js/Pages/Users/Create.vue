@@ -19,6 +19,8 @@
                 required
                 type="text"
             >
+            <div v-if="$page.props.errors.name" class="text-red-500 mt-4 text-xs"
+                 v-text="$page.props.errors.name"></div>
         </div>
         <div class="mb-6">
             <label
@@ -34,6 +36,11 @@
                 required
                 type="email"
             >
+            <div v-if="$page.props.errors.email"
+                 class="text-red-500 mt-4 text-xs"
+                 v-text="$page.props.errors.email">
+                
+            </div>
         </div>
         <div class="mb-6">
             <label
@@ -49,6 +56,10 @@
                 required
                 type="password"
             >
+            <div v-if="$page.props.errors.password"
+                 class="text-red-500 mt-4 text-xs"
+                 v-text="$page.props.errors.password">
+            </div>
         </div>
         <div class="mb-6">
             <button class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
