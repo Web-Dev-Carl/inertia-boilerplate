@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-
 use App\Models\User;
 
 Route::get('/', function () {
@@ -11,7 +10,7 @@ Route::get('/', function () {
 });
 
 Route::get('/users', function (Request $request) { // Inject Request here
-    return Inertia::render('Users', [
+    return Inertia::render('Users/Index', [
         'users' => User::query()
             ->when($request->input('search'), function ($query, $search) {
                 $query->where('name', 'LIKE', "%$search%");
@@ -26,6 +25,27 @@ Route::get('/users', function (Request $request) { // Inject Request here
         'filters' => $request->only(['search'])
     ]);
 });
+
+Route::get('/users/create', function () {
+    return Inertia::render('Users/Create');
+});
+
+Route::post('/users', function (Request $request) { // Inject Request here
+    $validate = $request->validate([ // Use the Request instance to call validate
+        'name' => 'required',
+        'email' => ['required', 'email'],
+        'password' => 'required',
+    ]);
+
+    User::create([
+        'name' => $request->input('name'), // Use the Request instance to call input
+        'email' => $request->input('email'), // Use the Request instance to call input
+        'password' => $request->input('password'), // Encrypt the password
+    ]);
+
+    return redirect('/users');
+});
+
 
 Route::get('/settings', function () {
     return Inertia::render('Settings');

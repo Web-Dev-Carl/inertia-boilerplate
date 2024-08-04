@@ -95,7 +95,7 @@
 </template>
 
 <script setup>
-import Paginator from "../Components/Paginator.vue";
+import Paginator from "../../Components/Paginator.vue";
 import {ref, watch} from "vue";
 import {Inertia} from "@inertiajs/inertia"
 
