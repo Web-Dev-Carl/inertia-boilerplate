@@ -17,7 +17,8 @@
                         title, email and role.</p>
                 </div>
                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                    <Link class="rounded-md bg-blue-300 py-3 px-2 text-white mr-4 text-xs" href="/users/create">Create
+                    <Link v-if="can.createUser" class="rounded-md bg-blue-300 py-3 px-2 text-white mr-4 text-xs"
+                          href="/users/create">Create
                         User <i
                             class="fa-sharp fa-regular fa-user-plus"></i>
                     </Link>
@@ -106,7 +107,8 @@ import debounce from "lodash/debounce";
 
 let props = defineProps({
     users: Object,
-    filters: Object
+    filters: Object,
+    can: Object
 });
 
 let search = ref(props.filters.search);
