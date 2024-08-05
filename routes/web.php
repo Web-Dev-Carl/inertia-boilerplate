@@ -10,6 +10,15 @@ Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth');
 
+
+// Socialite Auth Routes
+Route::get('/auth/{provider}/redirect', [SocialAuthController::class, 'redirect'])
+    ->where('provider', 'google|facebook|linkedin|github');
+
+Route::get('/auth/{provider}/callback', [SocialAuthController::class, 'callback'])
+    ->where('provider', 'google|facebook|linkedin|github');
+
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/', function () {
