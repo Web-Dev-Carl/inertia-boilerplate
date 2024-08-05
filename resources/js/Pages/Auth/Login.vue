@@ -50,6 +50,10 @@
                     type="submit">
                 Login
             </button>
+            <a class="bg-gray-200 text-slate-700 rounded py-3 px-4 hover:bg-gray-300 ml-4"
+               href="/auth/google/redirect">
+                <i class="fa-brands fa-google"></i> Login with Google
+            </a>
         </div>
     </form>
 </template>
